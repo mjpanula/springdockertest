@@ -11,4 +11,10 @@ public class HelloController {
     public String sayHello() {
         return "Hello, World!";
     }
+
+    @GetMapping("/hello")
+    @ResponseBody
+    public String sayHelloToSomeone() {
+        return "Hello, Someone!";
+    }
 }
