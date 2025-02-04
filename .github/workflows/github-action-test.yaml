@@ -1,4 +1,4 @@
-name: Print Code Change
+name: Run checkstyle
 
 on: 
   push:
@@ -6,10 +6,10 @@ on:
       - main
 
 jobs:
-  print-message:
+  run-checkstyle:
     runs-on: ubuntu-latest
 
-steps:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
