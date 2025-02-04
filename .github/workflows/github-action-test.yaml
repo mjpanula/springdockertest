@@ -9,9 +9,16 @@ jobs:
   print-message:
     runs-on: ubuntu-latest
 
-    steps:
+steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print message
-        run: echo "Code changed"
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+
+      - name: Run Checkstyle
+        run: |
+          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.21.2/checkstyle-10.21.2-all.jar
+          java -jar checkstyle-10.21.2-all.jar -c /sun_checks.xml src/
