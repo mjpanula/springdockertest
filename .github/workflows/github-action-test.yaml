@@ -19,7 +19,11 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Build with Maven
+        run: mvn clean install
+  
       - name: Run Checkstyle
-        run: |
-          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.21.2/checkstyle-10.21.2-all.jar
-          java -jar checkstyle-10.21.2-all.jar -c /sun_checks.xml src/
+        run: mvn checkstyle:check
+  
+      - name: Run tests
+        run: mvn test
