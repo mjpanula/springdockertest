@@ -3,7 +3,7 @@ name: Run checkstyle
 on: 
   push:
     branches:
-      - main
+      - ci-test
 
 jobs:
   run-checkstyle:
